@@ -1,0 +1,1 @@
+subjectAltName=DNS:fireflyagonestest.com,DNS:*.fireflyagonestest.com,IP:127.0.0.1

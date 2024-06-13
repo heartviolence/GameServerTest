@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: ItemSprite
+  m_EditorClassIdentifier: 
+  m_GroupName: ItemSprite
+  m_Data:
+    m_SerializedData: []
+  m_GUID: c97eb28f094c48d43bc92dfd16df1752
+  m_SerializeEntries:
+  - m_GUID: 3d4642d87085e4948961727e2464542c
+    m_Address: Assets/UI/Images/UISprite/Item/I-01-1.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UISprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b1c789db3cd261418b144c4db2d11e6
+    m_Address: Assets/UI/Images/UISprite/Item/I-02-2.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UISprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da38a73978e6cb24483b4e8b381e1601
+    m_Address: Assets/UI/Images/UISprite/Item/I-01-2.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UISprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b095d20d85bf66d42adaccf9ee61b24f
+    m_Address: Assets/UI/Images/UISprite/InteractiveObject/IO-01-1.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UISprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38d2a074d8bd30346876a2ffbcc64f77
+    m_Address: Assets/UI/Images/UISprite/Inventory/ItemRankBackground/Rare.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UISprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8fcbc365338077a4f841b5a0a3c9898f
+    m_Address: Assets/UI/Images/UISprite/Inventory/ItemRankBackground/Common.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UISprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11191c2671c172d4988abbe20899f716
+    m_Address: Assets/UI/Images/UISprite/Inventory/ItemRankBackground/Unique.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UISprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8fa95324a68a8984aa9f3ec4f4a33f21
+    m_Address: Assets/UI/Images/UISprite/Inventory/ItemRankBackground/Legendary.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UISprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05c81cf5fdec73f4da220952fb2668f5
+    m_Address: Assets/UI/Images/UISprite/Inventory/InventoryGridItemRankBackground/Legendary.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UISprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2d72a3f2ddb03f4db5c42dcc1e546e6
+    m_Address: Assets/UI/Images/UISprite/Inventory/InventoryGridItemRankBackground/Rare.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UISprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09234b904d646d34bb3805c9ed1f2812
+    m_Address: Assets/UI/Images/UISprite/Inventory/InventoryGridItemRankBackground/Common.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UISprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29c40e85a4fae45408539ae92c1e706d
+    m_Address: Assets/UI/Images/UISprite/Inventory/InventoryGridItemRankBackground/Unique.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UISprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9749fa2cc8e919e489adea15d46899d4
+    m_Address: Assets/UI/Images/UISprite/Item/I-02-1.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UISprite
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 5758a59a04979794dac50461714001b3, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8f146c36ffcfff540a695df04fad299f, type: 2}
+    - {fileID: 11400000, guid: cba5eaa291605a44b816d91e192425ab, type: 2}

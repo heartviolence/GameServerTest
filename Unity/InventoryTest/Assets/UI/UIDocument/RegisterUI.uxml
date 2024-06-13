@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; justify-content: center; align-items: center;">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1; justify-content: center;">
+            <ui:VisualElement style="width: 500px; height: 300px; align-self: center; background-color: rgb(255, 255, 255); border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; justify-content: flex-start; align-items: stretch; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+                <ui:Label tabindex="-1" text="Register" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-text-align: upper-center; -unity-font-style: bold; font-size: 20px;" />
+                <ui:Button text="X" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BtnClose" style="position: absolute; right: 10px; top: 10px; width: 30px; height: 30px;" />
+                <ui:TextField picking-mode="Ignore" name="FieldID" label="ID" style="flex-direction: row;" />
+                <ui:TextField picking-mode="Ignore" name="FieldPassword" label="Password" password="true" style="background-color: rgba(255, 255, 255, 0); flex-direction: row;" />
+                <ui:VisualElement style="flex-grow: 1; justify-content: center;">
+                    <ui:Button text="Register" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BtnRegister" style="background-color: rgb(255, 255, 255);" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

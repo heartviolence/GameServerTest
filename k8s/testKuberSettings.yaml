@@ -1,0 +1,175 @@
+## agones-sdk clusterRole추가
+##  annotation 수정용 권환(external-dns)
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: gspatch
+rules:
+- apiGroups:
+  - "agones.dev"
+  resources:
+  - gameservers
+  verbs: 
+  - patch
+
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: agones-sdk-gspatch
+roleRef:
+  kind: ClusterRole
+  name: gspatch
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: ServiceAccount
+  name: agones-sdk
+  namespace: default
+---
+
+#redis settings
+#configmap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-config
+data:
+  redis-config: |
+    maxmemory 100mb
+    maxmemory-policy volatile-lru
+---
+#redis service
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  labels:
+    app: redis
+spec:
+  selector:
+    app: redis
+  ports:
+  - name: redis
+    protocol: TCP
+    port: 6379
+    targetPort: 6379
+---
+
+#redis pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis
+  labels:
+      app: redis
+spec:
+  containers:
+  - name: redis
+    image: redis:latest
+    command:
+      - redis-server
+      - "/redis-master/redis.conf"
+    env:
+    - name: MASTER
+      value: "true"
+    ports:
+    - containerPort: 6379
+      name: redis
+    volumeMounts:
+    - mountPath: /redis-master-data
+      name: data
+    - mountPath: /redis-master
+      name: config
+  volumes:
+    - name: data
+      emptyDir: {}
+    - name: config
+      configMap:
+        name: redis-config
+        items:
+        - key: redis-config
+          path: redis.conf
+---
+
+## gameserverFleet
+apiVersion: agones.dev/v1
+kind: Fleet
+metadata:
+  name: simple-fleet
+spec:
+  replicas: 1
+  template:
+    spec:
+      ports:
+        - name: default
+          portPolicy: Dynamic
+          containerPort: 9999
+          protocol: TCP
+      health:
+        disabled: false
+        initialDelaySeconds: 10
+        periodSeconds: 10
+        failureThreshold: 8
+      sdkServer:
+        logLevel: Debug
+      template:    
+        metadata:
+          labels:
+            loadtarget: "true"
+        spec:
+          serviceAccountName: agones-sdk
+          # nodeSelector:
+          #   eks.amazonaws.com/nodegroup: AgonesGameserverNode
+          containers:
+            - name: gs
+              image: 211125596209.dkr.ecr.ap-northeast-2.amazonaws.com/firefly:testGS
+              imagePullPolicy: Always
+              env :
+                - name: ASPNETCORE_ENVIRONMENT
+                  value: "Final"
+
+---
+
+## matchserver loadbalancer
+apiVersion: v1
+kind: Service
+metadata:
+  name: matchserver
+  annotations:
+      external-dns.alpha.kubernetes.io/hostname: matchserver.fireflyagonestest.com
+spec:
+  type: LoadBalancer
+  selector:
+    app: matchserver
+  ports:
+  - protocol: TCP
+    port: 7777 # local port
+    targetPort: 7777
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: matchserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: matchserver
+  template:
+    metadata:      
+      labels:
+        app: matchserver
+    spec:
+      serviceAccountName: agones-sdk
+      containers:
+      - name: matchserver
+        image: 211125596209.dkr.ecr.ap-northeast-2.amazonaws.com/firefly:testMS
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 7777
+        env :
+          - name: ASPNETCORE_ENVIRONMENT
+            value: "Final"
+
