@@ -125,9 +125,9 @@ Unity용 에셋관리 시스템입니다.
 
 (https://qiita.com/naoya-kishimoto/items/8a9a5db30717865d867e) 참조
 
-![image](https://github.com/heartviolence/Test/assets/127963333/2e497eff-5187-46c5-b6d2-34c785dbd549)
+![image](https://github.com/heartviolence/GameServerTest/assets/127963333/c4674f28-4122-4386-9a78-4f556934f609)
 
-![image](https://github.com/heartviolence/Test/assets/127963333/b9fd0b6e-e62b-4cee-b1f0-dac12e8c01f4)
+![image](https://github.com/heartviolence/GameServerTest/assets/127963333/8a274a6a-0578-46fd-8969-ce974a67d6e4)
 
 ## HTTPS
 
@@ -153,26 +153,28 @@ AWS EKS를 사용하면 클러스터 구성에 많은 관리가 필요한 부분
 
 최종적인 구성은 다음과 같습니다.
 
-![도식](https://github.com/heartviolence/Test/assets/127963333/e805026e-b0ed-4e59-8ad4-a0c542dd7498)
+![도식](https://github.com/heartviolence/GameServerTest/assets/127963333/743855b9-bd5c-4ff8-9950-d0e46aa192d2)
+
 
 빌드 시나리오는 다음과 같습니다.
 
-![도식2](https://github.com/heartviolence/Test/assets/127963333/7f0756a7-b62b-4359-9b6a-c226a756a510)
+![도식2](https://github.com/heartviolence/GameServerTest/assets/127963333/16988d09-34f2-4c5c-9871-9744c47e967d)
 
 
 CodeBuild 프로젝트를 두개 만들어, Test Build와 Product Build를 구분합니다
 
-![image](https://github.com/heartviolence/Test/assets/127963333/9dc900bc-58b4-4ab1-b4ee-bab04657c365)
+![image](https://github.com/heartviolence/GameServerTest/assets/127963333/b6855533-7dfb-43c2-8b4a-cf568f52ca79)
+
 
 각각의 BuildSpec은 매치서버와 게임서버의 Dockerfile을 찾아 build하고 다른 Tag로 ECR에 업로드합니다.
 
 (Dockerfile중 일부)
 
-![image](https://github.com/heartviolence/Test/assets/127963333/3c15209f-194e-49c2-b711-087c8414c728)
+![image](https://github.com/heartviolence/GameServerTest/assets/127963333/1bc0434b-d384-4d0e-96cd-cbe5debce508)
 
 (csproj파일의 constant를 선언하는 부분)
 
-![image](https://github.com/heartviolence/Test/assets/127963333/353cd4d7-c06a-47a7-ac5e-d483a791f09b)
+![image](https://github.com/heartviolence/GameServerTest/assets/127963333/10386c97-b7f5-43dd-b713-782b81fa0613)
 
 build시 각기 다른 인수를 넘겨줄 수 있기에 빌드 환경마다 다른 상수를 선언할 수 있고, 전처리문을 이용하여 환경마다 다른 코드를 사용할 수 있습니다.
 
